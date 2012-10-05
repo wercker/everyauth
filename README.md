@@ -50,16 +50,22 @@ So far, `everyauth` enables you to login via:
        <td> <a href="https://github.com/ufssf">ufssf</a>
     <tr> <td> <img src="http://static.mailchimp.com/www/downloads/brand-assets/Freddie_Light_Background.png" style="vertical-align:middle" width="16px"> Mailchimp
       <td> <a href="http://github.com/wnadeau">Winfred Nadeau</a>
+    <tr> <td> <img src="http://github.com/bnoguchi/everyauth/raw/master/media/meetup.ico" style="vertical-align:middle"> Meetup
+      <td> <a href="http://github.com/jonathana">Jonathan Altman</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
        <td> <a href="https://github.com/edy-b">Eduard Baun</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer
        <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper
+       <td> <a href="https://github.com/akinsella">Alexis Kinsella</a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
+    <tr><td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred                            <td> <a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a>
+    <tr><td><img src='http://www.sinaimg.cn/blog/developer/wiki/LOGO_16x16.png' style="vertical-align:middle">Sina Weibo<td> <a href='https://github.com/justan'>justan</a>
   </tbody>
 </table>
 
@@ -78,7 +84,14 @@ So far, `everyauth` enables you to login via:
 
 
 ## Installation
+
+If you are using Connect 1.x or Express 2.x, install via:
+
     $ npm install everyauth
+
+If you are using Express 3.x, install via:
+
+    $ npm install git://github.com/bnoguchi/everyauth.git#express3
 
 ## Quick Start
 Using everyauth comes down to just 2 simple steps if using Connect
@@ -446,6 +459,28 @@ everyauth.facebook
   .appSecret('YOUR APP SECRET HERE')
   // rest of configuration
 ```
+
+### Facebook Canvas Pages
+For apps that can be embedded in Facebook via the canvas page, you can use the
+facebookCanvas submodule:
+
+```javascript
+everyauth.facebookCanvas
+  .canvasPath('CANVAS URL MINUS HOSTNAME') // Default is '/auth/facebook/canvas'
+  .canvasPage('CANVAS PAGE'); // Generally http://apps.facebook.com/APP-NAME
+```
+
+Note that you must also configure the usual Facebook configurations described
+above in order for this to work.
+
+You can tell if the user logged in via the canvas interface using the following test:
+
+```javascript
+if (everyauth.facebookCanvas) {
+  // Do something different
+}
+```
+
 
 ## Twitter OAuth
 
@@ -2114,6 +2149,35 @@ connect(
 ).listen(3000);
 ```
 
+### RunKeeper OAuth (2.0)
+
+You will first need to [register your application](http://runkeeper.com/partner/applications) to get the appId and appSecret.
+
+```javascript
+everyauth.runkeeper
+  .appId('YOUR CONSUMER KEY HERE')
+  .consumerSecret('YOUR CONSUMER SECRET HERE')
+  .findOrCreateUser( function (sess, accessToken, accessSecret, user) {
+    // find or create user logic goes here
+    //
+    // e.g.,
+    // return usersByRunKeeperId[user.userID] || (usersByRunKeeperId[user.userID] = user);
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
 ### OpenID protocol
 
 OpenID protocol allows you to use an openid auth request. You can read more information about it here http://openid.net/
@@ -2375,6 +2439,18 @@ object whose parameter name keys map to description values:
 
 ```javascript
 everyauth.box.configurable();
+```
+
+### Dailycred OAuth
+
+```javascript
+everyauth.dailycred
+  .appId(conf.dc.appId)
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, dcUserMetadata) {
+    return usersByDcId[dcUserMetadata.id] ||
+      (usersByDcId[dcUserMetadata.id] = addUser('dailycred', dcUserMetadata));
+  })
+  .redirectPath('/');
 ```
 
 ## Configuring a Module
