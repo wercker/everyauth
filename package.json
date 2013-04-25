@@ -26,7 +26,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "oauth": "https://github.com/ciaranj/node-oauth/tarball/master",
+    "oauth": "https://github.com/pjvds/node-oauth/tarball/master",
     "request": "2.9.x",
     "connect": ">=1 <2",
     "openid": ">=0.2.0",
