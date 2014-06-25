@@ -120,15 +120,20 @@ module.exports = {
       consumerKey: 'Enter your consumer key here'
     , consumerSecret: 'Enter your consumer secret here'
   }
-  , weibo: {
-      appId: '3350967939'
-    , appSecret: 'ef7f0a836d0ef315dca53e8d73816cc0'
+  , shopify: {
+      appId: 'YOUR APP API KEY'
+    , appSecret: 'YOUR APP SHARED SECRET'
+    , scope: 'read_products,write_themes'
   }
-  , runkeeper: {
-      appId: 'Enter your client/app id here'
-    , appSecret: 'Enter your client/app secret here'
-  , meetup: {
-      appId: 'nurgg46uqquq3eqa957ivnddv9'
-    , appSecret: '6spfeab72gc8f89l735i391rr3'
+  , stripe: {
+      appId: 'YOUR APP API KEY'
+    , appSecret: 'YOUR APP SHARED SECRET'
+    , scope: 'read_only'
+    , landing: 'login'
+  }
+  , salesforce: {
+      appId: 'YOUR APP API KEY'
+    , appSecret: 'YOUR APP SHARED SECRET'
+    , scope: 'id api refresh_token'
   }
 };

@@ -51,10 +51,9 @@ var usersBySoundCloudId = {};
 var usersByMailchimpId = {};
 var usersMailruId = {};
 var usersByMendeleyId = {};
-var usersByDcId = {};
-var usersByWeiboId = {};
-var usersByRunKeeperId = {};
-var usersByMeetupId = {};
+var usersByShopifyId = {};
+var usersByStripeId = {};
+var usersBySalesforceId = {};
 var usersByLogin = {
   'brian@example.com': addUser({ login: 'brian@example.com', password: 'password'})
 };
@@ -63,7 +62,7 @@ everyauth.everymodule
   .findUserById( function (id, callback) {
     callback(null, usersById[id]);
   });
-  
+
 everyauth.dailycred
   .appId(conf.dc.appId)
   .findOrCreateUser( function (session, accessToken, accessTokenExtra, dcUserMetadata) {
@@ -71,7 +70,7 @@ everyauth.dailycred
       (usersByDcId[dcUserMetadata.id] = addUser('dailycred', dcUserMetadata));
   })
   .redirectPath('/');
-  
+
 everyauth.azureacs
   .identityProviderUrl('https://acssample1.accesscontrol.windows.net/v2/wsfederation/')
   .entryPath('/auth/azureacs')
@@ -315,7 +314,7 @@ everyauth.tumblr
   .redirectPath('/');
 
 everyauth.box
-  .apiKey(conf.box.apiKey)
+  .appId(conf.box.apiKey)
   .findOrCreateUser( function (sess, authToken, boxUser) {
     return usersByBoxId[boxUser.user_id] ||
       (usersByDropboxId[boxUser.user_id] = addUser('box', boxUser));
@@ -430,7 +429,7 @@ everyauth
         (usersByMailchimpId[mailchimpUser.user_id] = addUser('mailchimp', mailchimpUser));
     })
     .redirectPath("/");
-    
+
 everyauth
   .weibo
     .appId(conf.weibo.appId)
@@ -449,14 +448,49 @@ everyauth.meetup
   })
   .redirectPath('/');
 
-var app = express.createServer(
-    express.bodyParser()
-  , express.static(__dirname + "/public")
-  , express.favicon()
-  , express.cookieParser()
-  , express.session({ secret: 'htuayreve'})
-  , everyauth.middleware()
-);
+everyauth
+  .shopify
+    .apiHost('https://SHOP-NAME.myshopify.com')
+    .oauthHost('https://SHOP-NAME.myshopify.com')
+    .appId(conf.shopify.appId)
+    .appSecret(conf.shopify.appSecret)
+    .scope(conf.shopify.scope)
+    .findOrCreateUser( function (sess, accessToken, accessSecret, shopifyUser) {
+      return usersByShopifyId[shopifyUser.id] ||
+        (usersByShopifyId[shopifyUser.id] = addUser('shopify', shopifyUser));
+    })
+    .redirectPath("/");
+
+everyauth
+  .stripe
+    .appId(conf.stripe.appId)
+    .appSecret(conf.stripe.appSecret)
+    .scope(conf.stripe.scope)
+    .landing(conf.stripe.landing)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, stripeUser) {
+      return usersByStripeId[stripeUser.id] ||
+        (usersByStripeId[stripeUser.id] = addUser('stripe', stripeUser));
+    })
+    .redirectPath("/");
+
+everyauth
+  .salesforce
+    .appId(conf.salesforce.appId)
+    .appSecret(conf.salesforce.appSecret)
+    .scope(conf.salesforce.scope)
+    .findOrCreateUser( function (sess, accessToken, accessTokenExtra, salesforceUser) {
+      return usersBySalesforceId[salesforceUser.id] ||
+        (usersBySalesforceId[salesforceUser.id] = addUser('salesforce', salesforceUser));
+    })
+    .redirectPath("/");
+
+var app = express();
+app.use(express.static(__dirname + '/public'))
+  .use(express.favicon())
+  .use(express.bodyParser())
+  .use(express.cookieParser('htuayreve'))
+  .use(express.session())
+  .use(everyauth.middleware());
 
 app.configure( function () {
   app.set('view engine', 'jade');
