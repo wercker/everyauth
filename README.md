@@ -3,7 +3,7 @@ everyauth
 
 Authentication and authorization (password, facebook, & more) for your node.js Connect and Express apps.
 
-There is a NodeTuts screencast of everyauth [here](http://nodetuts.com/tutorials/26-starting-with-everyauth.html#video)
+There is a NodeTuts screencast of everyauth [here](http://vimeo.com/26532298)
 
 There is also a Google Groups (recently created)
 [here](http://groups.google.com/group/everyauth) to post questions and discuss
@@ -33,7 +33,7 @@ So far, `everyauth` enables you to login via:
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/yahoo.ico" style="vertical-align:middle"> Yahoo!            <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/justintv.ico" style="vertical-align:middle"> Justin.tv      <td> <a href="https://github.com/slickplaid">slickplaid</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/vimeo.gif" style="vertical-align:middle"> Vimeo             <td> <a href="https://github.com/slickplaid">slickplaid</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals 
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/37signals.ico" style="vertical-align:middle"> 37signals
                                                                                               (Basecamp, Highrise, Backpack, Campfire)     <td>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/readability.ico" style="vertical-align:middle"> Readability <td> <a href="https://github.com/alfrednerstu">Alfred Nerstu</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/angellist.ico" style="vertical-align:middle" width="16px" height="16px"> AngelList     <td>
@@ -54,14 +54,14 @@ So far, `everyauth` enables you to login via:
       <td> <a href="http://github.com/jonathana">Jonathan Altman</a>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/mendeley.ico" style="vertical-align:middle"> Mendeley
        <td> <a href="https://github.com/edy-b">Eduard Baun</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/smarterer.ico" style="vertical-align:middle"> Smarterer
-       <td> <a href="https://github.com/kaizenpack">kaizenpack</a>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/runkeeper.ico" style="vertical-align:middle"> RunKeeper
-       <td> <a href="https://github.com/akinsella">Alexis Kinsella</a>
+    <tr> <td> <img src="https://github.com/Datahero/everyauth/raw/express3/media/stripe.ico" style="vertical-align:middle;" width="16px" height="16px"> Stripe
+       <td> <a href="https://github.com/jzabel">Jeff Zabel</a> from <a href="http://www.datahero.com"> Datahero </a>
+    <tr> <td> <img src="https://github.com/Datahero/everyauth/raw/express3/media/salesforce.ico" style="vertical-align:middle"> Salesforce
+       <td> <a href="https://github.com/jzabel">Jeff Zabel</a> from <a href="http://www.datahero.com"> Datahero </a>
   </tbody>
   <tbody id=misc>
     <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/box.ico" style="vertical-align:middle"> Box.net             <td>
-    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a> 
+    <tr> <td> <img src="https://github.com/bnoguchi/everyauth/raw/master/media/openid.ico" style="vertical-align:middle" width="16px" height="16px"> OpenId           <td> <a href="https://github.com/rocketlabsdev">RocketLabs Development</a>, <a href="https://github.com/starfishmod">Andrew Mee, <a href="https://github.com/bnoguchi">Brian Noguchi</a>
     <tr> <td> LDAP (experimental; not production-tested)                                                                                   <td>
     <tr> <td> Windows Azure Access Control Service (ACS)<td> <a href="https://github.com/darrenzully">Dario Renzulli</a>, <a href="https://github.com/jpgarcia">Juan Pablo Garcia</a>, <a href="https://github.com/woloski">Matias Woloski</a> from <a href="http://blogs.southworks.net/">Southworks</a>
     <tr><td><img src='https://www.dailycred.com/public/img/favicon.ico' style="vertical-align:middle">Dailycred                            <td> <a href='https://github.com/hstove'>Hank Stoever</a> at <a href='https://dailycred.com'>Dailycred.com</a>
@@ -71,13 +71,13 @@ So far, `everyauth` enables you to login via:
 
 `everyauth` is:
 
-- **Modular** - We have you covered with Facebook and Twitter 
-  OAuth logins, basic login/password support, and modules 
+- **Modular** - We have you covered with Facebook and Twitter
+  OAuth logins, basic login/password support, and modules
   coming soon for beta invitation support and more.
 - **Easily Configurable** - everyauth was built with powerful
-  configuration needs in mind. Configure an authorization strategy 
-  in a straightforward, easy-to-read & easy-to-write approach, 
-  with as much granularity as you want over the steps and 
+  configuration needs in mind. Configure an authorization strategy
+  in a straightforward, easy-to-read & easy-to-write approach,
+  with as much granularity as you want over the steps and
   logic of your authorization strategy.
 - **Idiomatic** - The syntax for configuring and extending your authorization strategies are
   idiomatic and chainable.
@@ -94,44 +94,27 @@ If you are using Express 3.x, install via:
     $ npm install git://github.com/bnoguchi/everyauth.git#express3
 
 ## Quick Start
-Using everyauth comes down to just 2 simple steps if using Connect
-or 3 simple steps if using Express:
+
+Incorporate everyauth into your express app in just 2 easy steps.
 
 1. **Choose and Configure Auth Strategies** - Find the authentication strategy
    you desire in one of the sections below. Follow the configuration
    instructions.
-2. **Add the Middleware to Connect**
+2. **Add the Middleware to Express**
 
     ```javascript
     var everyauth = require('everyauth');
     // Step 1 code goes here
 
     // Step 2 code
-    var connect = require('connect');
-    var app = connect(
-        connect.bodyParser()
-      , connect.cookieParser()
-      , connect.session({secret: 'mr ripley'})
-      , everyauth.middleware()
-      , connect.router(routes)
-    );
+    var express = require('express');
+    var app = express();
+    app
+      .use(express.bodyParser())
+      .use(express.cookieParser('mr ripley'))
+      .use(express.session())
+      .use(everyauth.middleware(app));
     ```
-3. **Add View Helpers to Express**
-
-    ```javascript
-    // Step 1 code
-    // ...
-    // Step 2 code
-    // ...
-
-    // Step 3 code
-    everyauth.helpExpress(app);
-
-    app.listen(3000);
-    ```
-
-    For more about what view helpers `everyauth` adds to your app, see the section
-    titled "Express Helpers" near the bottom of this README.
 
 ## Example Application
 
@@ -143,7 +126,7 @@ To run it:
     $ node server.js
 
 **Important** - Some OAuth Providers do not allow callbacks to localhost, so you will need to create a `localhost`
-alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also 
+alias called `local.host`. Make sure you set up your /etc/hosts so that 127.0.0.1 is also
 associated with 'local.host'. So inside your /etc/hosts file, one of the lines will look like:
 
     127.0.0.1	localhost local.host
@@ -161,7 +144,7 @@ login to each 3rd party service.
 
 ## Accessing the User
 
-If you are using `express` or `connect`, then `everyauth` 
+If you are using `express` or `connect`, then `everyauth`
 provides an easy way to access the user as:
 
 - `req.user` from your app server
@@ -236,12 +219,12 @@ attached to the helper, `everyauth`:
 
 - `everyauth.loggedIn`
 - `everyauth.user` - the User document associated with the session
-- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`, 
+- `everyauth.facebook` - The is equivalent to what is stored at `req.session.auth.facebook`,
   so you can do things like ...
 - `everyauth.facebook.user` - returns the user json provided from the OAuth provider.
 - `everyauth.facebook.accessToken` - returns the access_token provided from the OAuth provider
   for authorized API calls on behalf of the user.
-- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`, 
+- And you also get this pattern for other modules - e.g., `everyauth.twitter.user`,
   `everyauth.github.user`, etc.
 
 You also get access to the view helper
@@ -277,12 +260,12 @@ of helpers given previously, the alternative leveraging userAlias would look lik
       .label User Facebook Id
       .value #{everyauth.facebook.user.id}
 
-`everyauth` also provides convenience methods on the `ServerRequest` instance `req`. 
+`everyauth` also provides convenience methods on the `ServerRequest` instance `req`.
 From any scope that has access to `req`, you get the following convenience getters and methods:
 
 - `req.loggedIn` - a Boolean getter that tells you if the request is by a logged in user
 - `req.user`     - the User document associated with the session
-- `req.logout()` - clears the sesion of your auth data
+- `req.logout()` - clears the session of your auth data
 
 ## Logging Out
 
@@ -308,11 +291,11 @@ To over-write the logout handler:
 ```javascript
 everyauth.everymodule.handleLogout( function (req, res) {
   // Put you extra logic here
-  
+
   req.logout(); // The logout method is added for you by everyauth, too
-  
+
   // And/or put your extra logic here
-  
+
   this.redirect(res, this.logoutRedirectPath());
 });
 ```
@@ -326,7 +309,7 @@ everyauth.password
   .respondToLoginSucceed( function (res, user, data) {
     if (user) {
       this.redirect(res, data.session.redirectTo)
-    }   
+    }
   })
   .respondToRegistrationSucceed( function (res, user, data) {
     this.redirect(res, data.session.redirectTo)
@@ -412,10 +395,10 @@ everyauth.facebook.configurable();
 
 ### Dynamic Facebook Connect Scope
 
-Facebook provides many different 
+Facebook provides many different
 [permissions](http://developers.facebook.com/docs/authentication/permissions/)
 for which your app can ask your user. This is bundled up in the `scope` query
-paremter sent with the oauth request to Facebook. While your app may require 
+paremter sent with the oauth request to Facebook. While your app may require
 several different permissions from Facebook, Facebook recommends that you only
 ask for these permissions incrementally, as you need them. For example, you might
 want to only ask for the "email" scope upon registration. At the same time, for
@@ -572,7 +555,7 @@ everyauth.password
     // Or, we return a Promise that can fulfill to promise.fulfill(user) or promise.fulfill(errors)
     // `errors` is an array of error message strings
     //
-    // e.g., 
+    // e.g.,
     // Example 1 - Sync Example
     // if (usersByLogin[login] && usersByLogin[login].password === password) {
     //   return usersByLogin[login];
@@ -589,7 +572,7 @@ everyauth.password
     // return promise;
   })
   .loginSuccessRedirect('/') // Where to redirect to after a login
-  
+
     // If login fails, we render the errors via the login view template,
     // so just make sure your loginView() template incorporates an `errors` local.
     // See './example/views/login.jade'
@@ -630,7 +613,7 @@ everyauth.password
     // });
     // return promise;
     //
-    // Note: Index and db-driven validations are the only validations that occur 
+    // Note: Index and db-driven validations are the only validations that occur
     // here; all other validations occur in the `validateRegistration` step documented above.
   })
   .registerSuccessRedirect('/'); // Where to redirect to after a successful registration
@@ -753,14 +736,14 @@ will only cover `loginLocals` here to illustrate how to use both.
 You can configure this parameter in one of *3* ways. Why 3? Because there are 3 types of ways that you can retrieve your locals.
 
 1. Static local vars that never change values:
-   
+
        ```javascript
        everyauth.password.loginLocals({
          title: 'Login'
        });
        ```
 2. Dynamic synchronous local vars that depend on the incoming request, but whose values are retrieved synchronously
-   
+
        ```javascript
        everyauth.password.loginLocals( function (req, res) {
          var sess = req.session;
@@ -770,7 +753,7 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
        });
        ```
 3. Dynamic asynchronous local vars
-   
+
        ```javascript
        everyauth.password.loginLocals( function (req, res, done) {
          asyncCall( function ( err, data) {
@@ -786,7 +769,7 @@ You can configure this parameter in one of *3* ways. Why 3? Because there are 3 
 
 By default, `everyauth.password` automatically
 
-- validates that the login (or email or phone, depending on what you authenticate with -- see Password Recipe 2) is present in the login http request, 
+- validates that the login (or email or phone, depending on what you authenticate with -- see Password Recipe 2) is present in the login http request,
 - validates that the password is present
 - validates that an email login is a correctly formatted email
 - validates that a phone login is a valid phone number
@@ -910,7 +893,7 @@ connect(
 
 You can also configure more parameters (most are set to defaults) via
 the same chainable API:
-  
+
 ```javascript
 everyauth.github
   .entryPath('/auth/github')
@@ -1626,7 +1609,7 @@ everyauth.dropbox.configurable();
 ```javascript
 var everyauth = require('everyauth')
   , connect = require('connect');
-  
+
 everyauth.justintv
   .consumerKey('YOUR CONSUMER KEY HERE')
   .consumerSecret('YOUR CONSUMER SECRET HERE')
@@ -1637,7 +1620,7 @@ everyauth.justintv
     // return usersByJustintvId[justintvUser.id] || (usersByJustintvId[justintvUser.id] = justintvUser);
   })
   .redirectPath('/');
-  
+
 var routes = function (app) {
   // Define your routes here
 };
@@ -2101,7 +2084,7 @@ everyauth.mailchimp
     // Return a user or Promise that promises a user
     // Promises are created via
     //     var promise = this.Promise();
-    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey. 
+    // The mailchimpUserData object contains everything from the API method getAccountDetails and an apikey.
     // You'll want to work with mailchimpUserData.user_id for queries
     // and mailchimpUserData.apikey for your API wrapper
   })
@@ -2366,7 +2349,7 @@ everyauth.ldap
   .host('your.ldap.host')
   .port(389)
 
-  // The `ldap` module inherits from the `password` module, so 
+  // The `ldap` module inherits from the `password` module, so
   // refer to the `password` module instructions several sections above
   // in this README.
   // You do not need to configure the `authenticate` step as instructed
@@ -2441,16 +2424,167 @@ object whose parameter name keys map to description values:
 everyauth.box.configurable();
 ```
 
-### Dailycred OAuth
+### Shopify
 
 ```javascript
-everyauth.dailycred
-  .appId(conf.dc.appId)
-  .findOrCreateUser( function (session, accessToken, accessTokenExtra, dcUserMetadata) {
-    return usersByDcId[dcUserMetadata.id] ||
-      (usersByDcId[dcUserMetadata.id] = addUser('dailycred', dcUserMetadata));
+var everyauth = require('../index') //require('everyauth')
+  , express = require('express');
+
+everyauth
+  .shopify
+    .apiHost('https://SHOPNAME.myshopify.com')
+    .oauthHost('https://SHOPNAME.myshopify.com')
+    .appId('YOUR APP API KEY')
+    .appSecret('YOUR APP SHARED SECRET')
+
+    //Shopify requires scope, even if you only want to use default scope
+    .scope('read_products,write_themes')
+    .findOrCreateUser( function (sess, accessToken, accessSecret, shopifyUser) {
+      // find or create user logic goes here
+    })
+    .redirectPath("/");
+
+var app = express();
+
+app.use(express.bodyParser())
+  .use(express.cookieParser('whodunnit'))
+  .use(express.session())
+  .use(everyauth.middleware(app));
+
+app.get('/', function (req, res) {
+
+});
+
+app.listen(3000);
+```
+
+### Stripe
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.stripe
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .scope('read_only') // Defaults to read_only - can be set to 'read_write'.  See https://stripe.com/docs/connect/reference
+  .landing('login') //Defaults to login - can be set to 'register'.  See https://stripe.com/docs/connect/reference
+  .handleAuthCallbackError( function (req, res) {
+    // If a user denies your app, Stripe will redirect the user to
+    // /auth/facebook/callback?error=access_denied
+    // This configurable route handler defines how you want to respond to
+    // that.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, stripeUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
   })
   .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.stripe
+  .entryPath('/auth/stripe')
+  .callbackPath('/auth/stripe/callback')
+  .redirectPath('/auth/stripe');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.stripe.scope(); // undefined
+everyauth.stripe.entryPath(); // '/auth/stripe'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.stripe.configurable();
+```
+
+### Salesforce
+
+```javascript
+var everyauth = require('everyauth')
+  , connect = require('connect');
+
+everyauth.salesforce
+  .appId('YOUR CLIENT ID HERE')
+  .appSecret('YOUR CLIENT SECRET HERE')
+  .scope('api refresh_token') // Is none are set, it defaults to 'id api refresh_token') - see http://wiki.developerforce.com/page/Digging_Deeper_into_OAuth_2.0_on_Force.com
+  .handleAuthCallbackError( function (req, res) {
+    // If a user denies your app, Salesforce will redirect the user to
+    // /auth/facebook/callback?error=access_denied
+    // This configurable route handler defines how you want to respond to
+    // that.
+    // If you do not configure this, everyauth renders a default fallback
+    // view notifying the user that their authentication failed and why.
+  })
+  .findOrCreateUser( function (session, accessToken, accessTokenExtra, salesforceUserMetadata) {
+    // find or create user logic goes here
+    // Return a user or Promise that promises a user
+    // Promises are created via
+    //     var promise = this.Promise();
+  })
+  .redirectPath('/');
+
+var routes = function (app) {
+  // Define your routes here
+};
+
+connect(
+    connect.bodyParser()
+  , connect.cookieParser()
+  , connect.session({secret: 'whodunnit'})
+  , everyauth.middleware()
+  , connect.router(routes);
+).listen(3000);
+```
+
+You can also configure more parameters (most are set to defaults) via
+the same chainable API:
+
+```javascript
+everyauth.salesforce
+  .entryPath('/auth/salesforce')
+  .callbackPath('/auth/salesforce/callback')
+  .redirectPath('/auth/salesforce');
+```
+
+If you want to see what the current value of a
+configured parameter is, you can do so via:
+
+```javascript
+everyauth.salesforce.scope(); // undefined
+everyauth.salesforce.entryPath(); // '/auth/salesforce'
+```
+
+To see all parameters that are configurable, the following will return an
+object whose parameter name keys map to description values:
+
+```javascript
+everyauth.salesforce.configurable();
 ```
 
 ## Configuring a Module
@@ -2458,8 +2592,8 @@ everyauth.dailycred
 everyauth was built with powerful configuration needs in mind.
 
 Every module comes with a set of parameters that you can configure
-directly. To see a list of those parameters on a per module basis, 
-with descriptions about what they do, enter the following into the 
+directly. To see a list of those parameters on a per module basis,
+with descriptions about what they do, enter the following into the
 node REPL (to access the REPL, just type `node` at the command line)
 
     > var ea = require('everyauth');
@@ -2481,10 +2615,10 @@ ea.facebook
 ```
 
 Configuration parameters can be scalars. But they can be anything. For
-example, they can also be functions, too. The facebook module has a 
-configurable step named `findOrCreateUser` that is described as 
+example, they can also be functions, too. The facebook module has a
+configurable step named `findOrCreateUser` that is described as
 "STEP FN [findOrCreateUser] function encapsulating the logic for the step
-`fetchOAuthUser`.". What this means is that this configures the 
+`fetchOAuthUser`.". What this means is that this configures the
 function (i.e., "FN") that encapsulates the logic of this step.
 
 ```javascript
@@ -2495,7 +2629,7 @@ ea.facebook
 ```
 
 How do we know what arguments the function takes?
-We elaborate more about step function configuration in our 
+We elaborate more about step function configuration in our
 `Introspection` section below.
 
 ### For coffee-script lovers
@@ -2539,7 +2673,7 @@ everyauth.facebook.routes;
 Show the steps initiated by a given route:
 
 ```javascript
-everyauth.facebook.route.get.entryPath.steps; 
+everyauth.facebook.route.get.entryPath.steps;
 everyauth.facebook.route.get.callbackPath.steps;
 ```
 
@@ -2557,7 +2691,7 @@ everyauth.facebook.route.get.callbackPath.steps.incomplete;
 ```
 
 This tells you that you must define the function that defines the
-logic for the `findOrCreateUser` step. To see what the function 
+logic for the `findOrCreateUser` step. To see what the function
 signature looks like for this step:
 
 ```javascript
@@ -2623,7 +2757,7 @@ everyauth.oauth2.submodules;
 Other introspection tools to describe (explanations coming soon):
 
 - *Invalid Steps*
-    
+
     ```javascript
     everyauth.facebook.routes.get.callbackPath.steps.invalid
     ```

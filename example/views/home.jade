@@ -71,7 +71,7 @@
   #skyrock-login
     a(href='/auth/skyrock', style='border: 0px') Login with Skyrock
   #evernote-login
-    a(href='/auth/evernote', style='border: 0px') 
+    a(href='/auth/evernote', style='border: 0px')
       img(src='http://www.evernote.com/about/media/img/logo.png')
   #tripit-login
     a(href='/auth/tripit', style='border: 0px')
@@ -82,16 +82,22 @@
     a(href='/auth/soundcloud', style='border: 0px')
       img(src='http://connect.soundcloud.com/2/btn-connect-sc-l.png', title='Login with SoundCloud')
   #mixi-login
-    a(href='/auth/mixi', style='border: 0px') 
+    a(href='/auth/mixi', style='border: 0px')
       img(src='http://mixi.co.jp/press/images/thumb_press_def.gif', title='Login with mixi')
   #mailchimp-login
     a(href='/auth/mailchimp',style='border: 0px') Login with Mailchimp
   #mendeley-login
-    a(href='/auth/mendeley', style='border: 0px') 
+    a(href='/auth/mendeley', style='border: 0px')
       img(src='http://d1rktifm8krpj.cloudfront.net/graphics/commonnew/logo-mendeley_1248201417297118.png', title='Login with Mendeley')
-  #runkeeper-login
-    a(href='/auth/runkeeper', style='border: 0px')
-      img(src='http://d2b4ufapzmnxpw.cloudfront.net/build/3572/static/kronos/images/logo.png', title='Login with Runkeeper')
+  #shopify-login
+    a(href='/auth/shopify', style='border: 0px')
+      img(src='http://wiki.shopify.com/upload/b/b6/Shopify_Green_32x32.png', title='Login with Shopify')
+  #stripe-login
+    a(href='/auth/stripe', style='border: 0px')
+      img(src='https://stripe.com/img/documentation/connect-button-blue.png', title='Login with Stripe')
+  #salesforce-login
+    a(href='/auth/salesforce', style='border: 0px')
+      img(src='http://upload.wikimedia.org/wikipedia/commons/7/71/Salesforce_Logo_2009.JPG', title='Login with Salesforce')
   #openid-login
     form#openid(action='/auth/openid')
       label(for='openid_identifier') OpenID Identifier: &nbsp;
@@ -147,13 +153,13 @@
     p= JSON.stringify(everyauth.vimeo.user)
   - if (everyauth.justintv)
     h3 Justin.tv User Data
-    p= JSON.stringify(everyauth.justintv.user)  
+    p= JSON.stringify(everyauth.justintv.user)
   - if (everyauth['37signals'])
     h3 37signals User Data
-    p= JSON.stringify(everyauth['37signals'].user)  
+    p= JSON.stringify(everyauth['37signals'].user)
   - if (everyauth.tumblr)
     h3 Tumblr User Data
-    p= JSON.stringify(everyauth.tumblr.user)  
+    p= JSON.stringify(everyauth.tumblr.user)
   - if (everyauth.box)
     h3 Box.net User Data
     p= JSON.stringify(everyauth.box.user)
@@ -187,15 +193,14 @@
   - if (everyauth.mendeley)
     h3 Mendeley User Data
     p= JSON.stringify(everyauth.mendeley.user)
-  - if (everyauth['dailycred'])
-    p= JSON.stringify(everyauth.dailycred.user.email)
-  - if (everyauth['weibo'])
-    p= JSON.stringify(everyauth.weibo.user)
-  - if (everyauth.runkeeper)
-    h3 Runkeeper User Data
-    p= JSON.stringify(everyauth.runkeeper.user)
-  - if (everyauth.meetup)
-    h3 Meetup User Data
-    p= JSON.stringify(everyauth.meetup.user)
+  - if (everyauth.shopify)
+    h3 Shopify User Data
+    p= JSON.stringify(everyauth.shopify.user)
+  - if (everyauth.stripe)
+    h3 Stripe User Data
+    p= JSON.stringify(everyauth.stripe.user)
+  - if (everyauth.salesforce)
+    h3 Salesforce User Data
+    p= JSON.stringify(everyauth.salesforce.user)
   h3
     a(href='/logout') Logout
